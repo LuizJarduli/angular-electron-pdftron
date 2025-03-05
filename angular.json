@@ -29,7 +29,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/third-party/webviewer/public"
             ],
             "styles": [
               "src/styles.scss"

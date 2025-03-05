@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "move:webviewer": "npm run generate:webviewer-dir && cp -r node_modules/@pdftron/webviewer/public/* src/third-party/webviewer/public",
+    "generate:webviewer-dir": "mkdir -p src/third-party/webviewer/public",
+    "postinstall": "npm run move:webviewer"
   },
   "private": true,
   "dependencies": {
