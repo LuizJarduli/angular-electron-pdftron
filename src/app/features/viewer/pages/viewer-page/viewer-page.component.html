@@ -1,1 +1,8 @@
-<app-document-viewer></app-document-viewer>
+<app-document-header [title]="title"></app-document-header>
+
+<main class="viewer-container">
+  <app-document-viewer
+    [document]="document"
+    (onDocumentLoaded)="handleDocumentLoaded()"
+  ></app-document-viewer>
+</main>
