@@ -44,3 +44,4 @@ Thumbs.db
 # Electron related files
 /app/**/*.js
 /app/**/*.js.map
+/out
