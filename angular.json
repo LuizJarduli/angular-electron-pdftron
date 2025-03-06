@@ -30,10 +30,10 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/third-party/webviewer/public"
+              "src/assets/webviewer"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/theme/styles.scss"
             ],
             "scripts": []
           },
@@ -56,7 +56,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -92,7 +98,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/theme/styles.scss"
             ],
             "scripts": []
           }

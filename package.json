@@ -1,10 +1,16 @@
 {
   "name": "angular-electron-pdftron",
   "version": "0.0.0",
+  "main": "app/main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npx concurrently \"npm run ng:start\" \"npm run electron:start\"",
+    "ng:start": "ng serve",
+    "ng:dev": "npm run build:dev && npm run electron:start-tsc && electron .",
+    "electron:start-tsc": "tsc -p tsconfig.electron.json",
+    "electron:start": "npx wait-on tcp:4200 && npm run electron:start-tsc && electron . --serve",
     "build": "ng build",
+    "build:dev": "ng build -c development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "move:webviewer": "npm run generate:webviewer-dir && cp -r node_modules/@pdftron/webviewer/public/* src/third-party/webviewer/public",
@@ -20,6 +26,7 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@electron/remote": "2.1.2",
     "@pdftron/webviewer": "11.3.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -30,12 +37,19 @@
     "@angular/cli": "^19.2.1",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "concurrently": "9.1.2",
+    "electron": "35.0.0",
+    "electron-builder": "25.1.8",
+    "electron-debug": "4.1.0",
+    "electron-reloader": "1.2.3",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "tsx": "4.19.3",
+    "typescript": "~5.7.2",
+    "wait-on": "8.0.2"
   }
 }
