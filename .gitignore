@@ -37,6 +37,9 @@ yarn-error.log
 testem.log
 /typings
 
+# PDFTron lib
+/src/assets/webviewer/
+
 # System files
 .DS_Store
 Thumbs.db
