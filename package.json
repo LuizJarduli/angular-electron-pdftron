@@ -6,6 +6,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "ng": "ng",
+    "dev": "npx concurrently \"npm run ng:start\" \"npm run electron:start\"",
     "start": "electron-forge start",
     "ng:start": "ng serve",
     "ng:dev": "npm run build:dev && npm run electron:start-tsc && electron .",
